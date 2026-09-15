@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>กรอกข้อมูล | ระบบรับสมัครนักศึกษาใหม่</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- Header Navigation -->
+<header class="navbar">
+  <div class="logo">
+    <div class="logo-img">
+      <img src="image/logo-kmutnb.png" alt="โลโก้ มจพ.">
+    </div>
+    <span class="logo-text">ระบบรับสมัครนักศึกษาใหม่
+      <br><span class="university-name">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</span>
+    </span>
+  </div>
+
+  <nav class="nav-links">
+    <a href="index.html">หน้าแรก</a>
+    <a href="apply.html" class="active">กรอกใบสมัคร</a>
+    <a href="contact.html">ติดต่อเรา</a>
+  </nav>
+</header>
+
+<!-- Main Content -->
+<main class="container">
+  <div class="form-card">
+    <div class="form-header">
+      <h2>การสมัครเข้าศึกษาต่อ ปีการศึกษา 2570</h2>
+      <p>กรุณากรอกข้อมูลให้ครบถ้วนและถูกต้องตามความเป็นจริง</p>
+    </div>
+
+    <form action="#" method="POST" enctype="multipart/form-data">
+      
+      <!-- Section 1: ข้อมูลส่วนตัว -->
+      <div class="form-section">
+        <h3>1. ข้อมูลส่วนตัวผู้สมัคร</h3>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="prefix">คำนำหน้านาม *</label>
+            <select id="prefix" required>
+              <option value="">-- เลือกคำนำหน้า --</option>
+              <option value="mr">นาย</option>
+              <option value="miss">นางสาว</option>
+              <option value="mrs">นาง</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="fullname">ชื่อ - นามสกุล *</label>
+            <input type="text" id="fullname" placeholder="สมชาย ใจดี" required>
+          </div>
+          <div class="form-group">
+            <label for="national-id">เลขประจำตัวประชาชน (13 หลัก) *</label>
+            <input type="text" id="national-id" maxlength="13" pattern="[0-9]{13}" placeholder="1234567890123" required>
+          </div>
+          <div class="form-group">
+            <label for="dob">วัน/เดือน/ปีเกิด *</label>
+            <input type="date" id="dob" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">เบอร์โทรศัพท์ติดต่อ *</label>
+            <input type="tel" id="phone" pattern="[0-9]{10}" placeholder="0812345678" required>
+          </div>
+          <div class="form-group">
+            <label for="email">อีเมล *</label>
+            <input type="email" id="email" placeholder="example@email.com" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: ประวัติการศึกษา (ปรับปรุงแบบ Dropdown ไม่ต้องใช้ JS) -->
+<div class="form-section">
+  <h3>2. ประวัติการศึกษา</h3>
+  <div class="grid-2">
+    
+    <div class="form-group">
+      <label for="edu-level">วุฒิการศึกษาที่สำเร็จ/กำลังศึกษา *</label>
+      <select id="edu-level" required>
+        <option value="">-- เลือกวุฒิการศึกษา --</option>
+        <option value="m6">มัธยมศึกษาปีที่ 6 (ม.6)</option>
+        <option value="pvc">ประกาศนียบัตรวิชาชีพ (ปวช.)</option>
+        <option value="pvs">ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.)</option>
+      </select>
+    </div>
+
+    <!-- เพิ่ม Dropdown สำหรับประเภทวิชา/สายการเรียน -->
+    <div class="form-group">
+      <label for="edu-type">ประเภทวิชา / สายการเรียนเดิม *</label>
+      <select id="edu-type" required>
+        <option value="">-- เลือกประเภทวิชา/สายการเรียน --</option>
+        
+        <!-- 1. สายสามัญ (ม.6) -->
+        <optgroup label="สายสามัญ (ม.6)">
+          <option value="m6-sci">วิทยาศาสตร์ - คณิตศาสตร์</option>
+          <option value="m6-math">ศิลป์ - คำนวณ (คณิตศาสตร์ - ภาษา)</option>
+          <option value="m6-arts-lang">ศิลป์ - ภาษาต่างประเทศ</option>
+          <option value="m6-arts-soc">ศิลป์ - สังคม / ไทย / รวม</option>
+          <option value="m6-scicom">วิทยาศาสตร์ - คอมพิวเตอร์ / เทคโนโลยี</option>
+          <option value="m6-general">ม.6 สายทั่วไป / อื่นๆ</option>
+        </optgroup>
+
+        <!-- 2. ประกาศนียบัตรวิชาชีพ (ปวช.) -->
+        <optgroup label="สายอาชีพ (ปวช.)">
+          <option value="pvc-eng">ช่างอุตสาหกรรม (เช่น ไฟฟ้า, เครื่องกล, โยธา, เชื่อม, ยานยนต์)</option>
+          <option value="pvc-it">เทคโนโลยีสารสนเทศ / คอมพิวเตอร์ธุรกิจ</option>
+          <option value="pvc-biz">บริหารธุรกิจ / พาณิชยกรรม / การบัญชี / การตลาด</option>
+          <option value="pvc-arts">ศิลปกรรม / ออกแบบ / คหกรรม / ท่องเที่ยว</option>
+          <option value="pvc-other">ปวช. สาขาอื่นๆ</option>
+        </optgroup>
+
+        <!-- 3. ประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) -->
+        <optgroup label="สายอาชีพชั้นสูง (ปวส. - สำหรับสมัครเรียนต่อ/เทียบโอน)">
+          <option value="pvs-eng">ช่างอุตสาหกรรม / วิศวกรรมศาสตร์</option>
+          <option value="pvs-it">เทคโนโลยีสารสนเทศ / ดิจิทัลมีเดีย</option>
+          <option value="pvs-biz">บริหารธุรกิจ / การจัดการ / บัญชี</option>
+          <option value="pvs-other">ปวส. สาขาอื่นๆ</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="school">โรงเรียน / สถาบันการศึกษาเดิม *</label>
+      <input type="text" id="school" placeholder="ระบุชื่อโรงเรียน / วิทยาลัย" required>
+    </div>
+
+    <div class="form-group">
+      <label for="gpax">เกรดเฉลี่ยสะสม (GPAX) *</label>
+      <input type="number" id="gpax" step="0.01" min="0" max="4" placeholder="3.50" required>
+    </div>
+
+  </div>
+</div>
+
+      <!-- Section 3: สาขาที่ต้องการสมัคร -->
+      <div class="form-section">
+        <h3>3. เลือกคณะและสาขาวิชาที่ต้องการสมัคร</h3>
+        <div class="grid-2">
+          <div class="form-group">
+            <label for="faculty">คณะ *</label>
+            <select id="faculty" required>
+              <option value="">-- เลือกคณะ --</option>
+              <option value="1">คณะเทคโนโลยีและการจัดการอุตสาหกรรม</option>
+              <option value="2">คณะวิศวกรรมศาสตร์</option>
+              <option value="3">คณะวิทยาศาสตร์ประยุกต์</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="program">สาขาวิชา *</label>
+            <select id="program" required>
+              <option value="">-- เลือกสาขาวิชา --</option>
+              <optgroup label="คณะเทคโนโลยีและการจัดการอุตสาหกรรม">
+                <option value="101">สาขาวิชาเทคโนโลยีสารสนเทศ (IT)(วท.บ.) 4 ปี</option>
+                <option value="102">สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INE)(วศ.บ.) 4 ปี</option>
+                <option value="103">สาขาวิชาวิศวกรรมสารสนเทศและเครือข่าย (INET)(วศ.บ.)เทียบโอน 3ปี</option>
+                <option value="104">สาขาวิชาเทคโนโลยีสารสนเทศ (ITT)(วท.บ.) 2ปี(ต่อเนื่อง)</option>
+                <option value="105">สาขาวิชาเทคโนโลยีสารสนเทศ (ITI)(อส.บ.) 2ปี(ต่อเนื่อง)</option>
+              </optgroup>
+              <optgroup label="คณะวิศวกรรมศาสตร์">
+                <option value="201">สาขาวิชาวิศวกรรมไฟฟ้า (วศ.บ.) 4 ปี</option>
+                <option value="202">สาขาวิชาวิศวกรรมเครื่องกล (วศ.บ.) 4 ปี</option>
+                <option value="203">สาขาวิชาวิศวกรรมโยธา (วศ.บ.) 4 ปี</option>
+                <option value="204">สาขาวิชาวิศวกรรมอุตสาหการ (วศ.บ.) 4 ปี</option>
+              </optgroup>
+              <optgroup label="คณะวิทยาศาสตร์ประยุกต์">
+                <option value="301">สาขาวิชาวิทยาการคอมพิวเตอร์ (วท.บ.) 4 ปี</option>
+                <option value="302">สาขาวิชาเคมีอุตสาหกรรม (วท.บ.) 4 ปี</option>
+                <option value="303">สาขาวิชาฟิสิกส์อุตสาหกรรมและอุปกรณ์การแพทย์ (วท.บ.) 4 ปี</option>
+              </optgroup>
+            </select>
+            <small style="color:#888; font-size:0.8rem;">* กรุณาเลือกสาขาวิชาในกลุ่มที่ตรงกับคณะที่เลือกไว้ </small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 4: แนบเอกสารหลักฐาน (เพิ่มเติม) -->
+      <div class="form-section">
+        <h3>4. แนบเอกสารหลักฐาน</h3>
+        <div class="grid-1">
+          <div class="form-group">
+            <label for="transcript">หลักฐานการศึกษา(หน้า-หลัง) เช่น ระเบียนแสดงผลการเรียน หรือ Transcript หรือใบรับรอง ที่แสดงว่าสำเร็จการศึกษาหรือกำลังศึกษาในภาคเรียนสุดท้าย(ไฟล์ .pdf) *</label>
+            <input type="file" id="transcript" accept=".pdf" required>
+          </div>
+          <div class="form-group">
+            <label for="portfolio">รูปถ่ายชุดนักเรียนหรือนักศึกษา หน้าตรง ไม่สวมหมวก ไม่สวมแว่นตาดำ ขนาด 1-2 นิ้ว (ไฟล์ .jpg) *</label>
+            <input type="file" id="portfolio" accept=".jpg,.jpeg" required>
+          </div>
+          <div class="form-group">
+            <label for="id-card">สำเนาบัตรประจำตัวประชาชน (หากมีการเปลี่ยนชื่อ หรือนามสกุล ให้สแกนเอกสารต่อท้ายสำเนาบัตรประจำตัวประชาชนด้วย) (ไฟล์ .pdf)*</label>
+            <input type="file" id="id-card" accept=".pdf" required>
+          </div>
+        </div>
+      </div>
+
+      <!-- Consent PDPA -->
+      <div class="form-section">
+        <label style="display: flex; gap: 10px; align-items: flex-start; cursor: pointer;">
+          <input type="checkbox" required style="margin-top: 4px;">
+          <span>ข้าพเจ้าขอรับรองว่าข้อมูลและเอกสารที่ระบุข้างต้นเป็นความจริงทุกประการ และยินยอมให้มหาวิทยาลัยเก็บรวบรวมข้อมูลส่วนบุคคลเพื่อใช้ในการประมวลผลการรับสมัคร</span>
+        </label>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="form-actions">
+        <button type="reset" class="btn-cancel">ยกเลิก</button>
+        <a href="success.html" class="btn-submit" style="text-decoration: none;">บันทึกและส่งใบสมัคร</a>
+      </div>
+    </form>
+  </div>
+</main>
+
+  <!-- ส่วนท้ายเว็บ -->
+  <footer class="footer">
+    <div class="footer-content has-map">
+      <div class="footer-col">
+        <h3>ติดต่อ</h3>
+        <p>
+          กลุ่มงานรับเข้าศึกษา กองบริการการศึกษา สำนักงานอธิการบดี ชั้น 2 อาคาร TGGS<br>
+          มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ 1518 ถนนประชาราษฎร์ 1 แขวงวงศ์สว่าง เขตบางซื่อ กรุงเทพฯ 10800
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3>โทรศัพท์ / โซเชียล</h3>
+        <p>+66 2 555-2000 ต่อ 1626,1627<br>+66 2 555-2171</p>
+        <a href="https://www.facebook.com/admission.kmutnb" target="_blank" rel="noopener noreferrer">
+          Facebook: Admission.KMUTNB
+        </a>
+      </div>
+      <div class="footer-col footer-map">
+        <h3>แผนที่ตั้ง</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d943.3592091863844!2d100.514122!3d13.81916!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29b9bc62c08f5%3A0xa7082ce4308e41a4!2z4LiB4Lit4LiH4Lia4Lij4Li04LiB4Liy4Lij4LiB4Liy4Lij4Lio4Li24LiB4Lip4LiyIOC4oeC4q-C4suC4p-C4tOC4l-C4ouC4suC4peC4seC4ouC5gOC4l-C4hOC5guC4meC5guC4peC4ouC4teC4nuC4o-C4sOC4iOC4reC4oeC5gOC4geC4peC5ieC4suC4nuC4o-C4sOC4meC4hOC4o-C5gOC4q-C4meC4t-C4rQ!5e1!3m2!1sen!2sus!4v1788401217832!5m2!1sen!2sus"
+          loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

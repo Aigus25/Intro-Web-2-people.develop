@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ลงทะเบียน | ระบบรับสมัครนักศึกษาใหม่</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="navbar">
+    <div class="logo">
+      <div class="logo-img">
+        <img src="image/logo-kmutnb.png" alt="โลโก้ มจพ.">
+      </div>
+      <span class="logo-text">ระบบรับสมัครนักศึกษาใหม่
+        <br><span class="university-name">มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ</span>
+      </span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="index.html">หน้าแรก</a>
+      <a href="register.html" class="active">ลงทะเบียน</a>
+      <a href="login.html">เข้าสู่ระบบ</a>
+      <a href="contact.html">ติดต่อเรา</a>
+    </nav>
+  </header>
+
+  <main class="register-container">
+    <!-- ส่วนแจ้งข้อมูลเงื่อนไขด้านบน -->
+    <div class="info-notice">
+      <h2>ลงทะเบียน</h2>
+      <p>การลงทะเบียนเพื่อสมัครเข้าศึกษาต่อผู้สมัครต้องยินยอมรับเงื่อนไขและข้อตกลงที่มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือกำหนดก่อนจึงจะทำการสมัครได้ ซึ่งจะปรากฏในหน้าถัดไปภายหลังจากที่ผู้สมัครทำการลงทะเบียนเพื่อสมัครเรียนแล้ว</p>
+      
+      <p style="margin-top: 15px; font-weight: 600;">จำนวนอันดับการสมัคร</p>
+      <ul>
+          <li>กรอกข้อมูลการสมัครและตรวจสอบข้อมูลให้ถูกต้อง</li>
+          <li>ยืนยันข้อมูลและดำเนินการตามขั้นตอนของระบบ</li>
+      </ul>
+
+      <p style="margin-top: 15px; font-weight: 600;">คำเตือน</p>
+      <ul>
+          <li>กรุณากรอกข้อมูลให้ครบถ้วนและถูกต้อง</li>
+          <li>ชื่อผู้ใช้งานและรหัสผ่านควรเก็บไว้เป็นความลับ</li>
+      </ul>
+    </div>
+
+    <!-- กล่องฟอร์มลงทะเบียน -->
+    <div class="reg-box">
+      <div class="reg-box-header">
+        ลงทะเบียนเพื่อสมัครเรียน (ข้อมูลที่กรอกต้องเป็นของผู้สมัครเข้าศึกษาเท่านั้น)
+      </div>
+      
+      <div class="reg-form-body">
+        <!-- ส่งค่าไปหน้า login.html เมื่อลงทะเบียนสำเร็จ -->
+        <form action="login.html" method="GET">
+          
+          <!-- ต่างชาติ Checkbox -->
+          <div class="form-row-custom">
+            <div></div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <input type="checkbox" id="foreign">
+              <label for="foreign" style="text-align: left;">ต่างชาติ</label>
+            </div>
+            <div></div>
+          </div>
+
+          <!-- เลขประจำตัวประชาชน -->
+          <div class="form-row-custom">
+            <label for="reg-id">เลขประจำตัวประชาชน*</label>
+            <input type="text" id="reg-id" maxlength="13" pattern="[0-9]{13}" placeholder="เลขประจำตัวประชาชน 13 หลักหรือเลขหนังสือเดินทาง" required>
+            <div></div>
+          </div>
+
+          <!-- รหัสผ่าน -->
+          <div class="form-row-custom">
+            <label for="reg-pass">รหัสผ่าน*</label>
+            <input type="password" id="reg-pass" placeholder="ความยาวไม่ต่ำกว่า 8 ตัวอักษร" minlength="8" required>
+            <span class="hint-text">เป็นตัวเลขและตัวอักษรภาษาอังกฤษรวมกัน</span>
+          </div>
+
+          <!-- ยืนยันรหัสผ่าน -->
+          <div class="form-row-custom">
+            <label for="confirm-pass">ยืนยันรหัสผ่าน*</label>
+            <input type="password" id="confirm-pass" placeholder="เหมือนกับรหัสผ่าน" minlength="8" required>
+            <div></div>
+          </div>
+
+          <!-- ชื่อ -->
+          <div class="form-row-custom">
+            <label for="fname">ชื่อ*</label>
+            <input type="text" id="fname" placeholder="ชื่อ(ไทย) ไม่ต้องมีคำนำหน้าชื่อ" required>
+            <div></div>
+          </div>
+
+          <!-- นามสกุล -->
+          <div class="form-row-custom">
+            <label for="lname">นามสกุล(ไทย)*</label>
+            <input type="text" id="lname" placeholder="นามสกุล" required>
+            <div></div>
+          </div>
+
+          <!-- อีเมล -->
+          <div class="form-row-custom">
+            <label for="email">อีเมล*</label>
+            <input type="email" id="email" required>
+            <span class="hint-text">ป้อนอีเมลให้ถูกต้อง สำหรับใช้ในการติดต่อและเปลี่ยนรหัสผ่าน</span>
+          </div>
+
+          <!-- ยืนยันอีเมล -->
+          <div class="form-row-custom">
+            <label for="confirm-email">ยืนยันอีเมล*</label>
+            <input type="email" id="confirm-email" placeholder="email@kmutnb.ac.th" required>
+            <div></div>
+          </div>
+
+          <!-- ปุ่มลงทะเบียน -->
+          <div style="text-align: center; margin-top: 25px;">
+            <button type="submit" class="btn-submit" style="background-color: var(--primary-color); padding: 10px 40px; font-size: 1rem;">บันทึกการลงทะเบียน</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- ส่วนท้ายเว็บ -->
+  <footer class="footer">
+    <div class="footer-content has-map">
+      <div class="footer-col">
+        <h3>ติดต่อ</h3>
+        <p>
+          กลุ่มงานรับเข้าศึกษา กองบริการการศึกษา สำนักงานอธิการบดี ชั้น 2 อาคาร TGGS<br>
+          มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ 1518 ถนนประชาราษฎร์ 1 แขวงวงศ์สว่าง เขตบางซื่อ กรุงเทพฯ 10800
+        </p>
+      </div>
+      <div class="footer-col">
+        <h3>โทรศัพท์ / โซเชียล</h3>
+        <p>+66 2 555-2000 ต่อ 1626,1627<br>+66 2 555-2171</p>
+        <a href="https://www.facebook.com/admission.kmutnb" target="_blank" rel="noopener noreferrer">
+          Facebook: Admission.KMUTNB
+        </a>
+      </div>
+      <div class="footer-col footer-map">
+        <h3>แผนที่ตั้ง</h3>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d943.3592091863844!2d100.514122!3d13.81916!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29b9bc62c08f5%3A0xa7082ce4308e41a4!2z4LiB4Lit4LiH4Lia4Lij4Li04LiB4Liy4Lij4LiB4Liy4Lij4Lio4Li24LiB4Lip4LiyIOC4oeC4q-C4suC4p-C4tOC4l-C4ouC4suC4peC4seC4ouC5gOC4l-C4hOC5guC4meC5guC4peC4ouC4teC4nuC4o-C4sOC4iOC4reC4oeC5gOC4geC4peC5ieC4suC4nuC4o-C4sOC4meC4hOC4o-C5gOC4q-C4meC4t-C4rQ!5e1!3m2!1sen!2sus!4v1788401217832!5m2!1sen!2sus"
+          loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
