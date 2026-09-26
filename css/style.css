@@ -2,6 +2,7 @@
    1. COLOR VARIABLES & GLOBAL SETTINGS (ตั้งค่าสีและรูปแบบพื้นฐาน)
    ========================================================================== */
 :root {
+  /* ใช้ CSS Variables เพื่อควบคุมโทนสีของเว็บไซต์จากจุดเดียว */
   --primary-color: #e65100;       /* สีหลัก: ส้ม */
   --primary-hover: #e23500;       /* สีส้มเข้ม (ใช้ตอน Hover) */
   --bg-color: #f4f6f9;            /* สีพื้นหลังเว็บ */
@@ -12,6 +13,7 @@
   --focus-blue: #80bdff;          /* สีขอบตอนกดเลือกช่องกรอก */
 }
 
+/* รีเซ็ตค่าพื้นฐานของทุก element เพื่อให้แสดงผลสม่ำเสมอในแต่ละ browser */
 * {
   margin: 0;
   padding: 0;
@@ -19,6 +21,7 @@
   font-family: 'Kanit', sans-serif;
 }
 
+/* ใช้ Flexbox จัดโครงสร้างหน้าเว็บ และดัน Footer ไปด้านล่างเมื่อเนื้อหาสั้น */
 body {
   background-color: var(--bg-color);
   color: var(--text-main);
@@ -30,6 +33,7 @@ body {
 /* ==========================================================================
    2. NAVBAR & HEADER (แถบเมนูด้านบน)
    ========================================================================== */
+/* จัดวางโลโก้ทางซ้ายและเมนูทางขวาให้อยู่ในแนวเดียวกัน */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -59,6 +63,7 @@ body {
   font-weight: normal;
 }
 
+/* จำกัดขนาดโลโก้ และคงอัตราส่วนภาพเดิม */
 .logo-img img {
   width: 80px;
   height: auto;
@@ -78,6 +83,7 @@ body {
   transition: color 0.2s;
 }
 
+/* แสดงสถานะเมนูปัจจุบันและเอฟเฟกต์เมื่อผู้ใช้เลื่อนเมาส์ */
 .nav-links a:hover, 
 .nav-links a.active {
   color: var(--primary-color);
@@ -87,6 +93,7 @@ body {
 /* ==========================================================================
    3. LAYOUT & CONTAINERS (ส่วนจัดวางกล่องเนื้อหาหลัก)
    ========================================================================== */
+/* จำกัดความกว้างเนื้อหาและปล่อยให้ส่วนนี้ขยายเพื่อดัน Footer ลงด้านล่าง */
 .container {
   max-width: 900px;
   margin: 40px auto;
@@ -94,6 +101,7 @@ body {
   flex: 1;
 }
 
+/* กล่องกลางสำหรับแบบฟอร์มที่มีพื้นหลัง เงา และมุมโค้ง */
 .form-card {
   background-color: var(--card-bg);
   border-radius: 12px;
@@ -130,12 +138,14 @@ body {
   padding-left: 10px;
 }
 
+/* แบ่งช่องกรอกข้อมูลออกเป็น 2 คอลัมน์ */
 .grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
+/* ใช้สำหรับจัดช่องกรอกข้อมูลเป็นคอลัมน์เดียว */
 .grid-1 {
   display: flex;
   flex-direction: column;
@@ -145,6 +155,7 @@ body {
 /* ==========================================================================
    4. FORM ELEMENTS & BUTTONS (ช่องกรอกข้อมูล และ ปุ่มกด)
    ========================================================================== */
+/* จัด label และ input ให้อยู่ในแนวตั้ง พร้อมเว้นระยะห่างที่สม่ำเสมอ */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -167,6 +178,7 @@ body {
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
+/* เน้นช่องที่กำลังกรอก เพื่อช่วยให้ผู้ใช้ทราบตำแหน่งปัจจุบัน */
 .form-group input:focus, 
 .form-group select:focus {
   border-color: var(--primary-color);
@@ -181,6 +193,7 @@ body {
   padding-top: 25px;
 }
 
+/* กำหนดรูปแบบร่วมของปุ่มและลิงก์ที่ทำหน้าที่เหมือนปุ่ม */
 button, .btn-submit, .btn-cancel {
   padding: 10px 24px;
   font-size: 0.95rem;
@@ -205,6 +218,7 @@ button, .btn-submit, .btn-cancel {
   box-shadow: 0 4px 10px rgba(230, 81, 0, 0.25);
 }
 
+/* ยกปุ่มขึ้นเล็กน้อยเมื่อวางเมาส์ เพื่อให้ทราบว่ากดได้ */
 button:hover, .btn-submit:hover, .btn-cancel:hover {
   opacity: 0.9;
   transform: translateY(-1px);
@@ -217,6 +231,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
 /* ==========================================================================
    5. PAGE: INDEX (หน้าหลัก)
    ========================================================================== */
+/* กล่องรวมรูปภาพหน้าแรก จัดรูปภาพเรียงจากบนลงล่าง */
 .image-index {
   width: 100%;
   max-width: 1200px;
@@ -238,6 +253,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   transition: box-shadow 0.25s ease, transform 0.25s ease;
 }
 
+/* เพิ่มเงาและเลื่อนรูปขึ้นเล็กน้อยเมื่อรูปเป็นลิงก์ */
 .image-index a:hover img {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.14);
   transform: translateY(-2px);
@@ -246,6 +262,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
 /* ==========================================================================
    6. PAGE: LOGIN (หน้าเข้าสู่ระบบ - คุมโทนส้ม มจพ.)
    ========================================================================== */
+/* จำกัดความกว้างกล่อง Login เพื่อให้อ่านง่ายบนหน้าจอขนาดใหญ่ */
 .login-container {
   max-width: 550px;
   margin: 60px auto;
@@ -280,6 +297,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   font-size: 0.95rem;
 }
 
+/* ใช้เป็น container สำหรับ input และไอคอนที่อาจอยู่ภายในช่องกรอก */
 .input-wrapper {
   position: relative;
   display: flex;
@@ -289,6 +307,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
 
 .input-wrapper input {
   width: 100%;
+  /* เว้นพื้นที่ด้านขวาสำหรับไอคอนหรือปุ่มภายในช่องกรอก */
   padding: 10px 40px 10px 20px;
   border: 1px solid var(--border-color);
   border-radius: 6px;
@@ -296,7 +315,6 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
-
 
 .input-wrapper input:focus {
   border-color: var(--primary-color);
@@ -351,6 +369,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   flex: 1;
 }
 
+/* กล่องแสดงคำแนะนำหรือเงื่อนไขก่อนเริ่มกรอกข้อมูล */
 .info-notice {
   background: var(--card-bg);
   padding: 25px 30px;
@@ -374,6 +393,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   margin-top: 5px;
 }
 
+/* ครอบแบบฟอร์มลงทะเบียนและซ่อนส่วนเกินให้เข้ากับมุมโค้ง */
 .reg-box {
   border-radius: 12px;
   overflow: hidden;
@@ -393,6 +413,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   padding: 35px 30px;
 }
 
+/* แถวข้อมูลลงทะเบียน: label 1 ช่อง และช่องกรอกข้อมูล 2 ช่อง */
 .form-row-custom {
   display: grid;
   grid-template-columns: 200px 1fr 1fr;
@@ -425,6 +446,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   box-shadow: 0 0 0 0.2rem rgba(230, 81, 0, 0.15);
 }
 
+/* ข้อความช่วยเหลือเพิ่มเติมที่แสดงถัดจากช่องกรอกข้อมูล */
 .hint-text {
   font-size: 0.85rem;
   color: var(--text-muted);
@@ -433,6 +455,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
 /* ==========================================================================
    8. PAGE: SUCCESS / RECEIPT (หน้าพิมพ์ใบสมัคร)
    ========================================================================== */
+/* กล่องใบเสร็จหรือข้อมูลสรุปหลังส่งแบบฟอร์มสำเร็จ */
 .receipt-card {
   background: var(--card-bg);
   padding: 50px;
@@ -453,6 +476,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   color: var(--primary-color);
 }
 
+/* ป้ายแสดงสถานะ เช่น สมัครสำเร็จหรือชำระเงินแล้ว */
 .status-badge {
   display: inline-block;
   background-color: #2e7d32;
@@ -475,6 +499,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   color: var(--text-muted);
 }
 
+/* ตารางแสดงรายละเอียดใบสมัคร */
 .info-table {
   width: 100%;
   border-collapse: collapse;
@@ -502,6 +527,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
 /* ==========================================================================
    9. FOOTER (ส่วนท้ายเว็บ)
    ========================================================================== */
+/* ใช้ภาพพื้นหลังร่วมกับ overlay สีดำเ��ื่อให้ข้อความอ่านได้ชัดเจน */
 .footer {
   background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.65)), url('../image/P1.jpg');
   background-size: cover;
@@ -514,6 +540,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   margin-top: auto;
 }
 
+/* แบ่งเนื้อหา Footer เป็น 3 คอลัมน์ */
 .footer-content {
   max-width: 1100px;
   margin: 0 auto;
@@ -548,6 +575,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   color: #ffffff;
 }
 
+/* กำหนดขนาดแผนที่ให้พอดีกับคอลัมน์ของ Footer */
 .footer-col.footer-map iframe {
   width: 100%;
   height: 170px;
@@ -565,19 +593,20 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
    CSS FOR PRINT / SAVE PDF
    ========================================================================== */
 @media print {
-  /* ซ่อนส่วนที่ไม่จำเป็นออก */
+  /* ซ่อนส่วนที่ไม่จำเป็นออกจากเอกสารที่พิมพ์ */
   .navbar,
   .footer,
   .receipt-actions {
     display: none !important;
   }
 
-  /* ตั้งค่าหน้ากระดาษ A4 */
+  /* ตั้งค่าหน้ากระดาษ A4 และระยะขอบสำหรับการพิมพ์ */
   @page {
     size: A4;
     margin: 15mm;
   }
 
+  /* ล้างสีพื้นหลังและระยะห่างที่ไม่จำเป็นเมื่อพิมพ์ */
   body {
     background: #ffffff !important;
     color: #000000 !important;
@@ -585,6 +614,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
     padding: 0 !important;
   }
 
+  /* ขยาย container ให้ใช้พื้นที่หน้ากระดาษได้เต็มที่ */
   .container {
     width: 100% !important;
     max-width: 100% !important;
@@ -599,11 +629,11 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
     border: 1px solid #d0d0d0 !important; /* เส้นกรอบรอบการ์ด */
     border-radius: 12px !important;       /* ความโค้งของมุมการ์ด */
     padding: 35px 30px !important;       /* ระยะห่างด้านใน */
-    box-shadow: none !important;
+    box-shadow: none !important;          /* ตัดเงาออกเพื่อประหยัดหมึก */
     box-sizing: border-box !important;
   }
 
-  /* แสดงส่วนหัวกระดาษและโลโก้ */
+  /* แสดงส่วนหัวกระดาษและโลโก้เฉพาะตอนพิมพ์ */
   .print-header {
     display: flex !important;
     align-items: center;
@@ -637,7 +667,7 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
     color: #e65100;
   }
 
-  /* บังคับพิมพ์สีและพื้นหลังแถบสถานะ */
+  /* บังคับให้ browser พิมพ์สีและพื้นหลังขององค์ประกอบตามที่กำหนด */
   * {
     -webkit-print-color-adjust: exact !important;
     print-color-adjust: exact !important;
