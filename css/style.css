@@ -84,7 +84,7 @@ body {
 }
 
 /* แสดงสถานะเมนูปัจจุบันและเอฟเฟกต์เมื่อผู้ใช้เลื่อนเมาส์ */
-.nav-links a:hover, 
+.nav-links a:hover,
 .nav-links a.active {
   color: var(--primary-color);
   font-weight: 600;
@@ -168,7 +168,7 @@ body {
   color: #444444;
 }
 
-.form-group input, 
+.form-group input,
 .form-group select {
   padding: 10px 14px;
   border: 1px solid var(--border-color);
@@ -179,7 +179,7 @@ body {
 }
 
 /* เน้นช่องที่กำลังกรอก เพื่อช่วยให้ผู้ใช้ทราบตำแหน่งปัจจุบัน */
-.form-group input:focus, 
+.form-group input:focus,
 .form-group select:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 0.2rem rgba(230, 81, 0, 0.15);
@@ -582,4 +582,201 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
   border: 0;
   border-radius: 8px;
   display: block;
+}
+
+/* ==========================================================================
+   10. RESPONSIVE DESIGN (รองรับแท็บเล็ตและโทรศัพท์มือถือ)
+   ========================================================================== */
+
+/* แท็บเล็ตและหน้าจอขนาดกลาง */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+
+  .logo {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 18px;
+  }
+
+  .container,
+  .login-container,
+  .register-container {
+    width: 100%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .form-card,
+  .login-box,
+  .reg-form-body {
+    padding: 25px 20px;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .form-row-custom {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-row-custom label {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+
+  .form-row-custom .hint-text {
+    grid-column: 1 / -1;
+  }
+
+  .receipt-card {
+    width: 100%;
+    padding: 30px 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px 20px;
+  }
+
+  .footer-col.footer-map {
+    grid-column: 1 / -1;
+  }
+}
+
+/* โทรศัพท์มือถือ */
+@media (max-width: 480px) {
+  body {
+    font-size: 15px;
+  }
+
+  .navbar {
+    padding: 12px 15px;
+  }
+
+  .logo {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+  }
+
+  .logo-img img {
+    width: 60px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+  }
+
+  .university-name {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .nav-links {
+    gap: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .container,
+  .login-container,
+  .register-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .form-card,
+  .login-box,
+  .info-notice,
+  .reg-form-body,
+  .receipt-card {
+    padding: 20px 15px;
+    border-radius: 8px;
+  }
+
+  .form-header h2,
+  .info-notice h2 {
+    font-size: 1.25rem;
+  }
+
+  .form-section h3 {
+    font-size: 1rem;
+  }
+
+  .form-row-custom {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .form-row-custom label,
+  .form-row-custom .hint-text {
+    grid-column: auto;
+  }
+
+  .form-row-custom label {
+    text-align: left;
+  }
+
+  .form-actions,
+  .receipt-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .form-actions button,
+  .form-actions a,
+  .receipt-actions button,
+  .receipt-actions a,
+  .btn-submit,
+  .btn-cancel {
+    width: 100%;
+  }
+
+  .status-badge {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .info-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .info-table td {
+    padding: 10px 8px;
+  }
+
+  .footer {
+    padding: 30px 15px 20px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding-bottom: 20px;
+  }
+
+  .footer-col.footer-map {
+    grid-column: auto;
+  }
+
+  .footer-col.footer-map iframe {
+    height: 200px;
+  }
 }
