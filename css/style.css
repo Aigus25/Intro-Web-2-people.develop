@@ -780,3 +780,70 @@ button:hover, .btn-submit:hover, .btn-cancel:hover {
     height: 200px;
   }
 }
+
+/* ==========================================================================
+   11. OVERFLOW PROTECTION (ป้องกันหน้า apply เลื่อนแนวนอน)
+   ========================================================================== */
+
+/* ป้องกันไม่ให้โครงสร้างหลักของหน้าเว็บกว้างเกิน viewport */
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* ป้องกัน grid และ form section ขยายตามข้อความหรือ option ที่ยาว */
+.container,
+.form-card,
+.form-section,
+.grid-2,
+.grid-1,
+.form-group,
+form {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* ป้องกันสมาชิกใน CSS Grid ดันความกว้างของ parent เกินหน้าจอ */
+.grid-2 > *,
+.grid-1 > * {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* ควบคุม input และ select ให้ไม่เกินขอบกล่อง */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* รองรับ label และข้อความช่วยเหลือที่มีข้อความยาว */
+.form-group label,
+.form-group small {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* ป้องกันเนื้อหาในส่วนหัวของฟอร์มล้นออกด้านข้าง */
+.form-header h2,
+.form-header p,
+.form-section h3 {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+/* ปรับ grid ให้ใช้คอลัมน์ที่หดได้จริงบนหน้าจอขนาดเล็ก */
+@media (max-width: 768px) {
+  .grid-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .form-card {
+    overflow-x: hidden;
+  }
+}
